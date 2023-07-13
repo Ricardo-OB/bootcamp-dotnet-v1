@@ -1,4 +1,4 @@
-namespace Discoteque;
+namespace Discoteque.API;
 
 public class WeatherForecast
 {

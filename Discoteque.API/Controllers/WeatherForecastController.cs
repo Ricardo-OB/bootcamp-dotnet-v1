@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Discoteque.Controllers;
+namespace Discoteque.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
