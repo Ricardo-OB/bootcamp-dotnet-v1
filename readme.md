@@ -13,3 +13,19 @@ El presente repositorio contiene el proyecto guia del Bootcamp .NET dictado por 
 ## Notas
 
 - Se trabaja con la libreria `EntityFramework`
+
+## Levantar servidor local
+
+### Primera forma
+
+Ejecutar los siguientes comando en la terminal
+
+        cd Discoteque.API/
+        dotnet build
+        dotnet run
+
+### Segunda forma
+
+Ejecutar el siguiente comando en la terminal
+
+        dotnet watch --project Discoteque.API
