@@ -27,10 +27,10 @@ builder.Services.AddScoped<ISongService, SongService>();
 builder.Services.AddScoped<ITourService, TourService>();
 
 var app = builder.Build();
+PopulateDb(app);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -49,7 +49,7 @@ app.Run();
 /// Populate teh Database with some data.
 /// </summary>
 /// <param name="app"></param>
-async void PopulateDb(WebApplication app) {
+static async void PopulateDb(WebApplication app) {
 
     using (var scope = app.Services.CreateScope()) {
 

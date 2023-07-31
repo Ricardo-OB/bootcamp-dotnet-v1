@@ -37,22 +37,21 @@ public class SongService : ISongService {
     }
 
     public async Task<List<Song>> CreateSongs(List<Song> songs) {
-
-        int _idSongProblem = 0;
+        
         try {
-            foreach (var song in songs) {
-                var newSong = new Song {
-                    Name = song.Name,
-                    Duration = song.Duration,
-                    AlbumId = song.AlbumId
-                };
-                _idSongProblem = newSong.Id;
-                await _unitOfWork.SongRepository.AddAsync(newSong);
+            foreach (Song song in songs) {
+                var valAlbumId = await _unitOfWork.AlbumRepository.FindAsync(song.AlbumId);
+                if (valAlbumId == null) {
+                    throw new ArgumentException("Problem with Song data, AlbumId does not exist: id " + song.AlbumId.ToString());
+                }
             }
-            await _unitOfWork.SaveAsync();
+
+            foreach (Song song in songs) {
+                await CreateSong(song);
+            }
 
         } catch (Exception e) {
-            throw new Exception(e.Message + ". Error in CreateSongs method. Problem with Song, check song with id " + _idSongProblem.ToString());
+            throw new Exception(e.Message + ". Error in CreateSongs method");
         }
 
         return songs;
