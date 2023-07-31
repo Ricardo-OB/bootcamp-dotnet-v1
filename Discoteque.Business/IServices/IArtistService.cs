@@ -2,8 +2,7 @@ using Discoteque.Data.Models;
 
 namespace Discoteque.Business.IServices;
 
-public interface IArtistService
-{
+public interface IArtistService {
 
     Task<IEnumerable<Artist>> GetAllArtists();
 

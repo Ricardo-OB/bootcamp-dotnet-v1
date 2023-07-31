@@ -14,7 +14,7 @@ public class Tour : BaseEntity<int> {
         set { DateTime.TryParse(value, out _date); }
     }
 
-    public bool IsSouldOut { get; set; }
+    public bool IsSoldOut { get; set; }
 
     /// <summary>
     /// The <see cref="Artist"/> id this tour belongs to

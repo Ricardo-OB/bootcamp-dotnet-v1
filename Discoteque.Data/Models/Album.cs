@@ -43,5 +43,6 @@ public enum Genres
     Indie,
     Techno,
     Vallenato,
+    Pop,
     Unknown
 }
